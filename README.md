@@ -12,4 +12,4 @@ The contract demonstrates a fungible token model for representing proportional c
 Sepolia
 
 ## Contract Address
-[Paste your deployed contract address here]
+[https://github.com/Showgath/tokenisation-project/blob/main/RentalIncomeToken.sol]
