@@ -1,0 +1,29 @@
+name: Solidity CI
+
+on:
+  push:
+    paths:
+      - "*.sol"
+      - ".github/workflows/ci.yml"
+      - "README.md"
+  pull_request:
+    paths:
+      - "*.sol"
+      - ".github/workflows/ci.yml"
+      - "README.md"
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Compile contract
+        run: npx --yes solc --bin --abi RentalIncomeToken.sol
