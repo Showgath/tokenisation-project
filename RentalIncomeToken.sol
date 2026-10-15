@@ -84,7 +84,8 @@ contract RentalIncomeToken {
         require(amount > 0, "No income to claim");
 
         incomeBalance[msg.sender] = 0;
-        payable(msg.sender).transfer(amount);
+        (bool sent, ) = payable(msg.sender).call{value: amount}("");
+        require(sent, "ETH transfer failed");
 
         emit IncomeClaimed(msg.sender, amount);
     }
